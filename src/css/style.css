@@ -1,0 +1,11 @@
+/* theme vars */
+:root {
+  font-family: 'Nunito', sans-serif;
+}
+/* global styles */
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  background: #FFFFFF;
+  color: #000000;
+}
