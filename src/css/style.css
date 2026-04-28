@@ -9,3 +9,117 @@ body {
   background: #FFFFFF;
   color: #000000;
 }
+.contact-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+}
+.contact-card img {
+  width: 96px;
+  height: 96px;
+  border-radius: 28px;
+  object-fit: cover;
+}
+.contact-card p {
+  margin: 0 0 6px;
+  color: var(--brand-blue);
+  font-weight: 800;
+}
+.contact-card h2 {
+  margin: 0 0 24px;
+  font-size: 2rem;
+}
+.contact-card a,
+.contact-card span {
+  display: block;
+  margin-top: 10px;
+}
+.contact-card a {
+  color: var(--brand-blue);
+  font-weight: 800;
+  text-decoration: none;
+}
+.contact-card a:hover {
+  text-decoration: underline;
+}
+.team-list {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  max-width: 1100px;
+  margin: 0 auto 48px;
+  padding: 18px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.team-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+  padding: 10px 22px 10px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: #eef0f3;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.team-pill:hover {
+  transform: translateY(-3px);
+}
+.team-pill.is-active {
+  background: #507DBC;
+  color: #fff;
+}
+.team-pill img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.team-page {
+  min-height: 100vh;
+  padding: 80px 24px;
+  overflow: hidden;
+}
+.team-hero {
+  max-width: 900px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+.team-hero .eyebrow {
+  margin: 0 0 12px;
+  color: var(--brand-blue);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.team-hero h1 {
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+.team-hero p {
+  color: #6b7280;
+  font-size: 1.15rem;
+}
+@media (max-width: 600px) {
+  .team-page {
+    padding: 56px 16px;
+  }
+  .team-hero h1 {
+    font-size: clamp(3rem, 16vw, 4.5rem);
+  }
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+}

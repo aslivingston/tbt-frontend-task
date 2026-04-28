@@ -1,0 +1,45 @@
+.team-page {
+  min-height: 100vh;
+  padding: 80px 24px;
+  overflow: hidden;
+}
+
+.team-hero {
+  max-width: 900px;
+  margin: 0 auto 56px;
+  text-align: center;
+
+  .eyebrow {
+    margin: 0 0 12px;
+    color: var(--brand-blue);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+  }
+
+  p {
+    color: #6b7280;
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .team-page {
+    padding: 56px 16px;
+  }
+
+  .team-hero h1 {
+    font-size: clamp(3rem, 16vw, 4.5rem);
+  }
+
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+}

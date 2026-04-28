@@ -1,3 +1,5 @@
+import headshot1 from "../assets/images/headshot-1.jpg"
+
 export type Contact = {
     id: number;
     name: string;
@@ -5,6 +7,7 @@ export type Contact = {
     email: string;
     phone: string;
     address: string;
+    image: string;
 };
 
 export const contacts: Contact[] = [
@@ -15,6 +18,7 @@ export const contacts: Contact[] = [
         email: "sarah.johnson@example.com",
         phone: "+44 7700 900123",
         address: "123 High Street, London",
+        image: headshot1,
     },
     {
         id: 2,
@@ -23,6 +27,7 @@ export const contacts: Contact[] = [
         email: "michael.smith@example.com",
         phone: "+44 7700 900124",
         address: "456 Oak Avenue, Manchester",
+        image: headshot1,
     },
     {
         id: 3,
@@ -31,6 +36,7 @@ export const contacts: Contact[] = [
         email: "emily.davis@example.com",
         phone: "+44 7700 900125",
         address: "789 Pine Road, Birmingham",
+        image: headshot1,
     },
     {
         id: 4,
@@ -39,6 +45,7 @@ export const contacts: Contact[] = [
         email: "david.wilson@example.com",
         phone: "+44 7700 900126",
         address: "101 Elm Street, Liverpool",
+        image: headshot1,
     },
     {
         id: 5,
@@ -47,6 +54,7 @@ export const contacts: Contact[] = [
         email: "lisa.brown@example.com",
         phone: "+44 7700 900127",
         address: "202 Maple Avenue, Leeds",
+        image: headshot1,
     }
 
 ];
