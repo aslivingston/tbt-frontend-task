@@ -1,7 +1,7 @@
 import TeamSlider from "../../components/teamSlider/teamSlider";
 import { contacts } from "../../data/contacts";
 
-function Team1() {
+function Team() {
     return (
         <main className="team-page page-enter">
             <section className="team-hero hero-enter">
@@ -15,4 +15,4 @@ function Team1() {
     );
 }
 
-export default Team1;
+export default Team;

@@ -34,7 +34,7 @@ function TeamSlider({ contacts }: TeamSliderProps) {
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === "Escape") {
-            clearSelection();
+                clearSelection();
             }
         };
 
@@ -122,15 +122,15 @@ function TeamSlider({ contacts }: TeamSliderProps) {
 
                                     <div className="team-card-details">
                                         <a
-                                        href={`mailto:${contact.email}`}
-                                        onClick={(event) => event.stopPropagation()}
+                                            href={`mailto:${contact.email}`}
+                                            onClick={(event) => event.stopPropagation()}
                                         >
                                             {contact.email}
                                         </a>
 
                                         <a
-                                        href={`tel:${contact.phone.replace(/\s/g, "")}`}
-                                        onClick={(event) => event.stopPropagation()}
+                                            href={`tel:${contact.phone.replace(/\s/g, "")}`}
+                                            onClick={(event) => event.stopPropagation()}
                                         >
                                             {contact.phone}
                                         </a>
