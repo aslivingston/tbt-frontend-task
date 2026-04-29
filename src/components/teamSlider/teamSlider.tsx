@@ -125,14 +125,14 @@ function TeamSlider({ contacts }: TeamSliderProps) {
                                         href={`mailto:${contact.email}`}
                                         onClick={(event) => event.stopPropagation()}
                                         >
-                                        {contact.email}
+                                            {contact.email}
                                         </a>
 
                                         <a
                                         href={`tel:${contact.phone.replace(/\s/g, "")}`}
                                         onClick={(event) => event.stopPropagation()}
                                         >
-                                        {contact.phone}
+                                            {contact.phone}
                                         </a>
 
                                         <p>{contact.address}</p>
