@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Contact } from "../../data/contacts";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
@@ -30,6 +30,20 @@ function TeamSlider({ contacts }: TeamSliderProps) {
 
         swiperRef.current?.autoplay?.start();
     };
+
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+            clearSelection();
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, []);
 
     return (
         <section className="team-slider-section">
@@ -88,21 +102,43 @@ function TeamSlider({ contacts }: TeamSliderProps) {
             >
                 {contacts.map((contact) => (
                     <SwiperSlide key={contact.id} className={`team-slide ${selectedId === contact.id ? "is-active" : "" }`} >
-                        <article className="team-card">
-                            <div className="card-content">
-                                <div>
-                                    <p className="team-role">{contact.role}</p>
-                                    <h2>{contact.name}</h2>
-                                </div>
+                        <article
+                            className="team-card"
+                            onClick={() => handleSelect(contact.id)}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(event) => {
+                                if (event.key === "Escape" && selectedId !== "") {
+                                    clearSelection();
+                                }
+                            }}
+                        >
+                            <div className="card-image-wrap">
+                                <img src={contact.image} alt={contact.name} />
 
-                                <div className="team-card-details">
-                                    <a href={`mailto:${contact.email}`}>{contact.email}</a>
-                                    <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>{contact.phone}</a>
-                                    <p>{contact.address}</p>
+                                <div className="card-header">
+                                    <h2>{contact.name}</h2>
+                                    <p>{contact.role}</p>
+
+                                    <div className="team-card-details">
+                                        <a
+                                        href={`mailto:${contact.email}`}
+                                        onClick={(event) => event.stopPropagation()}
+                                        >
+                                        {contact.email}
+                                        </a>
+
+                                        <a
+                                        href={`tel:${contact.phone.replace(/\s/g, "")}`}
+                                        onClick={(event) => event.stopPropagation()}
+                                        >
+                                        {contact.phone}
+                                        </a>
+
+                                        <p>{contact.address}</p>
+                                    </div>
                                 </div>
                             </div>
-                            <img src={contact.image} alt={contact.name} />
-
                         </article>
                     </SwiperSlide>
                 ))}

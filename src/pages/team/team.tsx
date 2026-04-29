@@ -1,32 +1,18 @@
-import { useState } from "react";
-import { contacts, type Contact } from "../../data/contacts";
-import TeamList from "../../components/teamList/teamList";
-import ContactCard from "../../components/contactCard/contactCard";
+import TeamSlider from "../../components/teamSlider/teamSlider";
+import { contacts } from "../../data/contacts";
 
-function Team() {
-    const [selectedContact, setSelectedContact] = useState<Contact>(contacts[0]);
-
+function Team1() {
     return (
-        <main className="team-page">
-            <section className="team-hero">
-                <p className="eyebrow">Team directory</p>
-
-                <h1>Meet Our Team of Experts</h1>
-
-                <p className="intro">
-                    Select a team member to view their contact details.
-                </p>
+        <main className="team-page page-enter">
+            <section className="team-hero hero-enter">
+                <h2 className="eyebrow">Team directory</h2>
+                <h1>Meet the people behind the work</h1>
+                <p>Select a team member or browse the slider.</p>
             </section>
 
-            <TeamList
-                contacts={contacts}
-                selectedContact={selectedContact}
-                onSelectContact={setSelectedContact}
-            />
-
-            <ContactCard contact={selectedContact} />
+            <TeamSlider contacts={contacts} />
         </main>
     );
 }
 
-export default Team;
+export default Team1;

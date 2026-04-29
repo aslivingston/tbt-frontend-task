@@ -97,6 +97,7 @@
 
 .team-slider {
     overflow: visible;
+    padding-bottom: 50px !important;
 }
 
 .team-slide {
@@ -120,22 +121,27 @@
         .team-card-details {
             a {
                 color: @white !important;
+                font-weight: unset;
             }
 
             p {
                 color: @white !important;
+                font-weight: unset;
             }
         }
     }
 }
 
 .team-card {
-    min-height: 650px;
     border-radius: 28px;
     background: @light-gray;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    .card-header {
+        padding: 24px;
+    }
 
     .card-content {
         padding: 24px;
@@ -187,19 +193,104 @@
     gap: 8px;
 
     a {
+        position: relative;
+        display: inline-block;
+        width: fit-content;
         color: @black;
         font-weight: 800;
         text-decoration: none;
-        transition: 0.3s all ease;
 
-        &:hover {
-            text-decoration: underline;
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 1px;
+            background: currentColor;
+
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.25s ease;
+        }
+
+        &:hover::after {
+            transform: scaleX(1);
         }
     }
 
     p {
         margin: 0;
         color: @mid-gray;
+    }
+}
+
+.team-card {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+
+    .card-image-wrap {
+        position: relative;
+        border-radius: 28px;
+        background: @light-gray;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+        }
+    }
+
+    .card-header {
+        position: absolute;
+        left: -1px;
+        right: -1px;
+        bottom: -20px;
+        padding: 30px 20px;
+        border-radius: 23px;
+        background: @light-gray;
+        z-index: 99;
+
+        .team-card-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            margin-top: 0;
+            transition: max-height 0.3s ease, opacity 0.25s ease, margin-top 0.3s ease;
+        }
+
+        h2 {
+            margin: 0;
+            color: @primary-blue;
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        p {
+            margin: 8px 0 0;
+            color: @mid-gray;
+            font-weight: 800;
+        }
+    }
+}
+
+.team-slide.is-active {
+    .card-header {
+        background: darken(@primary-blue, 8%);
+
+        h2,
+        p,
+        a {
+            color: @white;
+        }
+
+        .team-card-details {
+            max-height: 140px;
+            opacity: 1;
+            margin-top: 16px;
+        }
     }
 }
 
