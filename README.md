@@ -8,14 +8,30 @@ This project demonstrates a dynamic UI component that allows users to browse tea
 
 ## Features
 
-- Autoplaying team slider (Swiper)
+- Autoplaying team slider using Swiper
 - Dropdown selector to jump to a specific team member
-- Autoplay pauses on selection
-- Clear selection to resume autoplay
-- Custom navigation controls (top-right arrows)
-- Active card styling
+- Clickable cards to select and focus a team member
+- Autoplay pauses on selection and resumes when cleared
+- Clear selection button + Escape key support
+- Active card expands to reveal contact details (email, phone, address)
+- Clickable email (`mailto:`) and phone (`tel:`) links
+- Custom navigation controls (desktop)
 - Responsive layout (mobile → desktop)
-- Subtle entry animations
+- Accessible interactions (keyboard + ARIA support)
+- Subtle UI animations and transitions
+
+---
+
+## Interaction Overview
+
+- Slider autoplays through team members by default
+- Selecting a team member (via dropdown or card):
+  - Stops autoplay
+  - Moves slider to the selected person
+  - Expands the card to reveal additional details
+- Clicking "clear selection" or pressing `Escape`:
+  - Resets selection
+  - Resumes autoplay
 
 ---
 
