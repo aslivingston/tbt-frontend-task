@@ -1,5 +1,5 @@
 .team-slider-section {
-    max-width: 1180px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 32px;
     border-radius: 32px;
@@ -17,6 +17,16 @@
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            border: 0;
+        }
     }
 
     label {
@@ -54,6 +64,7 @@
             font-weight: 700;
             box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
             appearance: none;
+            cursor: pointer;
         }
     }
 
@@ -97,7 +108,7 @@
         opacity: 1;
 
         .team-card {
-            background: @primary-blue !important;
+            background: darken(@primary-blue, 8%) !important;
 
             .team-role {
                 color: @white !important;
@@ -119,7 +130,7 @@
 }
 
 .team-card {
-    min-height: 520px;
+    min-height: 650px;
     border-radius: 28px;
     background: @light-gray;
     display: flex;
@@ -147,7 +158,7 @@
 
     img {
         width: 100%;
-        height: 380px;
+        height: 450px;
         border-radius: 22px;
         object-fit: cover;
     }
@@ -158,6 +169,7 @@
     margin-left: 15px;
     border: 0;
     border-radius: 999px;
+    background: darken(@primary-blue, 8%);
     color: @white;
     font: inherit;
     font-weight: 800;
@@ -191,9 +203,9 @@
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: @mobile) {
     .team-slider-section {
-        padding: 0px;
+        padding: 5px;
     }
 
     .team-controls {
@@ -202,26 +214,33 @@
 
         .team-controls-left {
             width: 100%;
+            display: flex;
             align-items: center;
-            flex-direction: column;
+            flex-direction: row;
             gap: 10px;
 
             .select-wrap {
+                flex: 1;
+                min-width: 0;
+
+                select {
                 width: 100%;
+                min-width: 0;
+                }
             }
         }
 
         .team-controls-right {
             display: none;
         }
+    }
 
-        select {
-            width: 100%;
-            min-width: 0;
-        }
-
-        .team-controls-right {
-            align-self: flex-end;
-        }
+    .clear-selection {
+        flex: 0 0 auto;
+        margin-left: 0;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        border-radius: 50%;
     }
 }

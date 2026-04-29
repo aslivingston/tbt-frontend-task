@@ -35,29 +35,28 @@ function TeamSlider({ contacts }: TeamSliderProps) {
         <section className="team-slider-section">
             <div className="team-controls">
                 <div className="team-controls-left">
-                    <label htmlFor="team-member"></label>
+                    <label htmlFor="team-member" className="sr-only">Team Member</label>
+                    <div className="select-wrap">
+                        <select
+                            id="team-member"
+                            value={selectedId}
+                            onChange={(event) => handleSelect(Number(event.target.value))}
+                        >
+                            <option value="" disabled>
+                                Select a team member
+                            </option>
 
-                        <div className="select-wrap">
-                            <select
-                                id="team-member"
-                                value={selectedId}
-                                onChange={(event) => handleSelect(Number(event.target.value))}
-                            >
-                                <option value="" disabled>
-                                    Select a team member
+                            {contacts.map((contact) => (
+                                <option key={contact.id} value={contact.id}>
+                                    {contact.name}
                                 </option>
-
-                                {contacts.map((contact) => (
-                                    <option key={contact.id} value={contact.id}>
-                                        {contact.name}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+                            ))}
+                        </select>
+                    </div>
 
                     {autoplayStopped && (
-                        <button className="clear-selection" type="button" onClick={clearSelection}>
-                            Clear selection
+                        <button className="clear-selection" type="button" onClick={clearSelection} aria-label="Clear selected team member">
+                            X
                         </button>
                     )}
                 </div>
@@ -81,7 +80,7 @@ function TeamSlider({ contacts }: TeamSliderProps) {
                 autoplay={{delay: 3000, disableOnInteraction: false,}}
                 breakpoints={{
                     0: {slidesPerView: 1,},
-                    640: {slidesPerView: 2,},
+                    575: {slidesPerView: 2,},
                     1024: {slidesPerView: 3,},
                 }}
                 onSwiper={(swiper) => {swiperRef.current = swiper;}}

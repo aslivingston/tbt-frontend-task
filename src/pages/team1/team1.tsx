@@ -5,7 +5,7 @@ function Team1() {
     return (
         <main className="team-page page-enter">
             <section className="team-hero hero-enter">
-                <p className="eyebrow">Team directory</p>
+                <h2 className="eyebrow">Team directory</h2>
                 <h1>Meet the people behind the work</h1>
                 <p>Select a team member or browse the slider.</p>
             </section>

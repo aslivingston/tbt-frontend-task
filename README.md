@@ -13,10 +13,9 @@ This project demonstrates a dynamic UI component that allows users to browse tea
 - Autoplay pauses on selection
 - Clear selection to resume autoplay
 - Custom navigation controls (top-right arrows)
-- Active card styling with gradient/glass effect
+- Active card styling
 - Responsive layout (mobile → desktop)
 - Subtle entry animations
-- Optional marquee-style team list (experimental)
 
 ---
 
@@ -35,8 +34,8 @@ This project demonstrates a dynamic UI component that allows users to browse tea
 Clone the repo:
 
 ```bash
-git clone <your-repo-url>
-cd <your-project-name>
+git clone https://github.com/aslivingston/tbt-frontend-task.git
+cd tbt-frontend-task
 npm install
 npm run dev
 ```
