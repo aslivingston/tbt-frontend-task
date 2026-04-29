@@ -4,29 +4,29 @@ import TeamList from "../../components/teamList/teamList";
 import ContactCard from "../../components/contactCard/contactCard";
 
 function Team() {
-  const [selectedContact, setSelectedContact] = useState<Contact>(contacts[0]);
+    const [selectedContact, setSelectedContact] = useState<Contact>(contacts[0]);
 
-  return (
-    <main className="team-page">
-      <section className="team-hero">
-        <p className="eyebrow">Team directory</p>
+    return (
+        <main className="team-page">
+            <section className="team-hero">
+                <p className="eyebrow">Team directory</p>
 
-        <h1>Meet Our Team of Experts</h1>
+                <h1>Meet Our Team of Experts</h1>
 
-        <p className="intro">
-          Select a team member to view their contact details.
-        </p>
-      </section>
+                <p className="intro">
+                    Select a team member to view their contact details.
+                </p>
+            </section>
 
-      <TeamList
-        contacts={contacts}
-        selectedContact={selectedContact}
-        onSelectContact={setSelectedContact}
-      />
+            <TeamList
+                contacts={contacts}
+                selectedContact={selectedContact}
+                onSelectContact={setSelectedContact}
+            />
 
-      <ContactCard contact={selectedContact} />
-    </main>
-  );
+            <ContactCard contact={selectedContact} />
+        </main>
+    );
 }
 
 export default Team;

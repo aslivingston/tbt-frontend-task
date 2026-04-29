@@ -1,0 +1,52 @@
+.page-enter {
+    animation: pageFadeIn 0.5s ease both;
+}
+
+.eyebrow {
+    color: @primary-blue !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+}
+
+.hero-enter {
+    animation: heroFadeUp 0.8s ease both;
+}
+
+.team-slider-section {
+    animation: sectionFadeUp 1.0s ease 0.15s both;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes sectionFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
