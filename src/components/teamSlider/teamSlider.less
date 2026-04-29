@@ -17,20 +17,15 @@
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            border: 0;
-        }
     }
 
-    label {
-        font-weight: 800;
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        border: 0;
     }
 
     .select-wrap {
@@ -42,16 +37,11 @@
             position: absolute;
             right: 18px;
             top: 50%;
-            transform: translateY(-50%);
-            pointer-events: none;
-            z-index: 99;
-
             width: 12px;
             height: 12px;
-
-            background-image: url("/src/assets/chevron.svg");
-            background-repeat: no-repeat;
-            background-size: contain;
+            transform: translateY(-50%);
+            pointer-events: none;
+            background: url("/src/assets/chevron.svg") no-repeat center / contain;
         }
 
         select {
@@ -95,81 +85,6 @@
     }
 }
 
-.team-slider {
-    overflow: visible;
-    padding-bottom: 50px !important;
-}
-
-.team-slide {
-    height: auto;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-
-    &.is-active {
-        opacity: 1;
-
-        .team-card {
-            background: darken(@primary-blue, 8%) !important;
-
-            .team-role {
-                color: @white !important;
-            }
-            h2 {
-                color: @white !important;
-            }
-        }
-        .team-card-details {
-            a {
-                color: @white !important;
-                font-weight: unset;
-            }
-
-            p {
-                color: @white !important;
-                font-weight: unset;
-            }
-        }
-    }
-}
-
-.team-card {
-    border-radius: 28px;
-    background: @light-gray;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    .card-header {
-        padding: 24px;
-    }
-
-    .card-content {
-        padding: 24px;
-    }
-
-    .team-role {
-        margin: 0 0 8px;
-        color: @mid-gray;
-        font-size: 0.85rem;
-        font-weight: 800;
-    }
-
-    h2 {
-        margin: 0 0 16px;
-        font-size: 2rem;
-        line-height: 0.95;
-        letter-spacing: -0.04em;
-        color: @primary-blue;
-    }
-
-    img {
-        width: 100%;
-        height: 450px;
-        border-radius: 22px;
-        object-fit: cover;
-    }
-}
-
 .clear-selection {
     padding: 10px 16px;
     margin-left: 15px;
@@ -188,41 +103,13 @@
     }
 }
 
-.team-card-details {
-    display: grid;
-    gap: 8px;
+.team-slider {
+    overflow: visible;
+    padding-bottom: 50px !important;
+}
 
-    a {
-        position: relative;
-        display: inline-block;
-        width: fit-content;
-        color: @black;
-        font-weight: 800;
-        text-decoration: none;
-
-        &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -2px;
-            width: 100%;
-            height: 1px;
-            background: currentColor;
-
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.25s ease;
-        }
-
-        &:hover::after {
-            transform: scaleX(1);
-        }
-    }
-
-    p {
-        margin: 0;
-        color: @mid-gray;
-    }
+.team-slide {
+    height: auto;
 }
 
 .team-card {
@@ -234,13 +121,14 @@
         position: relative;
         border-radius: 28px;
         background: @light-gray;
+    }
 
-        img {
-            display: block;
-            width: 100%;
-            height: 550px;
-            object-fit: cover;
-        }
+    img {
+        display: block;
+        width: 100%;
+        height: 550px;
+        border-radius: 22px;
+        object-fit: cover;
     }
 
     .card-header {
@@ -248,18 +136,11 @@
         left: -1px;
         right: -1px;
         bottom: -20px;
+        z-index: 2;
         padding: 30px 20px;
         border-radius: 23px;
         background: @light-gray;
-        z-index: 99;
-
-        .team-card-details {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            margin-top: 0;
-            transition: max-height 0.3s ease, opacity 0.25s ease, margin-top 0.3s ease;
-        }
+        transition: background 0.25s ease;
 
         h2 {
             margin: 0;
@@ -276,6 +157,46 @@
     }
 }
 
+.team-card-details {
+    display: grid;
+    gap: 8px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition: max-height 0.3s ease, opacity 0.25s ease, margin-top 0.3s ease;
+
+    a {
+        position: relative;
+        display: inline-block;
+        width: fit-content;
+        color: @black;
+        text-decoration: none;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 1px;
+            background: currentColor;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.25s ease;
+        }
+
+        &:hover::after {
+            transform: scaleX(1);
+        }
+    }
+
+    p {
+        margin: 0;
+        color: @mid-gray;
+    }
+}
+
 .team-slide.is-active {
     .card-header {
         background: darken(@primary-blue, 8%);
@@ -285,12 +206,12 @@
         a {
             color: @white;
         }
+    }
 
-        .team-card-details {
-            max-height: 140px;
-            opacity: 1;
-            margin-top: 16px;
-        }
+    .team-card-details {
+        max-height: 140px;
+        opacity: 1;
+        margin-top: 16px;
     }
 }
 
@@ -305,8 +226,6 @@
 
         .team-controls-left {
             width: 100%;
-            display: flex;
-            align-items: center;
             flex-direction: row;
             gap: 10px;
 
@@ -315,8 +234,8 @@
                 min-width: 0;
 
                 select {
-                width: 100%;
-                min-width: 0;
+                    width: 100%;
+                    min-width: 0;
                 }
             }
         }
@@ -328,10 +247,10 @@
 
     .clear-selection {
         flex: 0 0 auto;
-        margin-left: 0;
         width: 44px;
         height: 44px;
         padding: 0;
+        margin-left: 0;
         border-radius: 50%;
     }
 }
